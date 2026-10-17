@@ -1,14 +1,26 @@
+
 import FishTableRow from "./FishTableRow";
-const FishTable = () => (
+const FishTable = (props) => (
   <table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+      {props.manar.map((el) => {
+        console.log(props , "props");
+        
+        return (
+ <FishTableRow el={el} />
+        )
+
+      })}
     </tbody>
   </table>
 );
 
+export default FishTable;
 
 
-export default FishTable
+
+
+
+
+
+
