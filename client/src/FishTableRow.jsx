@@ -1,15 +1,39 @@
-const FishTableRow = () => {
+import { useState } from "react";
+
+const FishTableRow = (props) => {
+  const [hide, sethide] = useState(false);
+
+  // lutilis yckliki aala lnom
 
 
-    return (
-      <tr>
-        <td className="fish-name">Nemo</td>
-        <td>
-          <img src="http://tinyurl.com/h8o5szh" alt='Nemo' />
-        </td>
-       <td className="fish-description">Does anyone know where my dad is?</td> 
-      </tr>
-    )
-}
 
-export default FishTableRow
+  return (
+    <tr>
+      <td
+        className="fish-name"
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          sethide(!hide);
+
+          console.log(hide);
+        }}
+      >
+        {" "}
+        {props.el.name}{" "}
+      </td>
+      <td>
+        <img src={props.el.image} alt="Nemo" />
+      </td>
+      {hide ? null : (
+        <td className="fish-description"> {props.el.description}</td>
+      )}
+    </tr>
+  );
+};
+
+export default FishTableRow;
+
+
+
+
+
